@@ -1,0 +1,5 @@
+# Bundle patch for dsh-host-exec
+# Mounts the `host_exec` tool so DSH can run code on the host, bypassing the rootless sandbox.
+- insert:
+    - id: tool-host-exec
+      name: dsh-host-exec

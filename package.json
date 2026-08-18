@@ -1,0 +1,15 @@
+{
+  "name": "dsh-host-exec",
+  "version": "0.1.0",
+  "description": "DSH tool plugin that runs commands on the HOST side (bypassing the rootless sandbox) — for any code that needs direct host access, GPU-dependent or not.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
