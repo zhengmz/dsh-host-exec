@@ -38,17 +38,10 @@ DSH 默认的 `bash` 工具在 **rootless bwrap 沙箱** 中执行，该沙箱�
 从 GitHub 安装（仓库：`zhengmz/dsh-host-exec`）。DSH 会在 profile 目录里运行 pnpm 从 GitHub 拉取，并把声明了 `dsh.bundle.patch` 的插件**自动加入** `dsh.profile.bundles`：
 
 ```bash
-npx @deepseek-ai/dsh plugin --profile web add github:zhengmz/dsh-host-exec
+dsh plugin --profile web add github:zhengmz/dsh-host-exec
 ```
 
-> 若本地开发想直接使用工作区源码，可用本地路径：`npx @deepseek-ai/dsh plugin --profile web add /path/to/dsh-host-exec`。
-> 注意：对本地目录 `dsh plugin add` 默认使用 pnpm `link:`（软链接到源目录）。若插件因此从源目录加载而导致 `@deepseek-ai/dsh-tools` 等解析失败（`MODULE_NOT_FOUND`），请在插件所在目录的父链提供到 DSH 运行时刻包的 `node_modules/@deepseek-ai` 链接：
->
-> ```bash
-> mkdir -p /path/to/dsh-host-exec/../../node_modules/@deepseek-ai
-> ln -s <dsh-npx-dir>/node_modules/@deepseek-ai/dsh-tools   /path/to/.../node_modules/@deepseek-ai/dsh-tools
-> ln -s <dsh-npx-dir>/node_modules/@deepseek-ai/schemastery /path/to/.../node_modules/@deepseek-ai/schemastery
-> ```
+> 若本地开发想直接使用工作区源码，可用本地路径：`dsh plugin --profile web add /path/to/dsh-host-exec`。
 
 安装后**重启 DSH**，你的会话工具列表里就会出现 `host_exec`。
 
@@ -129,6 +122,6 @@ dsh-host-exec/
 ## 卸载
 
 ```bash
-npx @deepseek-ai/dsh plugin --profile web remove dsh-host-exec
+dsh plugin --profile web remove dsh-host-exec
 ```
 

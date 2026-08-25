@@ -38,17 +38,10 @@ Measured on our host: `nvidia-smi` inside the sandbox reports `couldn't communic
 Install from GitHub (repo: `zhengmz/dsh-host-exec`). DSH runs pnpm in the profile directory, pulls it from GitHub, and **automatically adds** the plugin (which declares `dsh.bundle.patch`) to `dsh.profile.bundles`:
 
 ```bash
-npx @deepseek-ai/dsh plugin --profile web add github:zhengmz/dsh-host-exec
+dsh plugin --profile web add github:zhengmz/dsh-host-exec
 ```
 
-> For local development you can use a path instead: `npx @deepseek-ai/dsh plugin --profile web add /path/to/dsh-host-exec`.
-> Note: `dsh plugin add` uses pnpm `link:` (a symlink to the source directory) for local paths. If the plugin is therefore loaded from its source directory and `@deepseek-ai/dsh-tools` fails to resolve (`MODULE_NOT_FOUND`), provide a `node_modules/@deepseek-ai` link to the DSH runtime packages in the plugin's parent directory, for example:
->
-> ```bash
-> mkdir -p /path/to/dsh-host-exec/../../node_modules/@deepseek-ai
-> ln -s <dsh-npx-dir>/node_modules/@deepseek-ai/dsh-tools   /path/to/.../node_modules/@deepseek-ai/dsh-tools
-> ln -s <dsh-npx-dir>/node_modules/@deepseek-ai/schemastery /path/to/.../node_modules/@deepseek-ai/schemastery
-> ```
+> For local development you can use a path instead: `dsh plugin --profile web add /path/to/dsh-host-exec`.
 
 After installing, **restart DSH** and the `host_exec` tool will appear in your session.
 
@@ -129,6 +122,6 @@ dsh-host-exec/
 ## Uninstall
 
 ```bash
-npx @deepseek-ai/dsh plugin --profile web remove dsh-host-exec
+dsh plugin --profile web remove dsh-host-exec
 ```
 
