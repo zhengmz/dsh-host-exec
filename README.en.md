@@ -10,6 +10,8 @@ Bypasses the DSH rootless bwrap sandbox and executes commands in the **host proc
 
 </div>
 
+> ⚠️ **Note: this plugin is deprecated.** It is no longer used in the new version of dsh. Do not install or depend on it with newer dsh versions.
+
 ---
 
 ## What problem does it solve
